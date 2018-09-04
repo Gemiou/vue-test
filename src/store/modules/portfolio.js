@@ -1,19 +1,29 @@
+
 const state ={
-    fund:1000,
-    stocks:[]
+  portfolioStock: []
 };
 
-const mutation ={
-  'BUY_STOCK'(state,{stockId,quantity,stockPrice}){
-      const record = state.stocks.find(element => element.id === stockId);
-      if(record){
-          record.quantity += quantity;
-      } else {
-          state.stocks.push ({
-              id:stockId,
-              quantity:quantity
-          })
-      }
-  }
+const mutations ={
+    'BUY_STOCKS'(state, stocks) {
+        state.portfolioStock.push(stocks);
+    }
 };
 
+const  actions ={
+    buyStock: (context, payload) => {
+        context.commit("BUY_STOCKS", payload)
+    },
+};
+
+const getters ={
+    portfolioStocks: state => {
+        return state.portfolioStock
+    }
+};
+
+export default {
+    state,
+    mutations,
+    getters,
+    actions
+}

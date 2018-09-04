@@ -9,27 +9,25 @@
 </template>
 
 <script>
-import Stock from "../stocks/Stock.vue";
+    import Stock from "../stocks/Stock.vue";
 
-export default {
-  name: "Stocks",
-    data() {
-        return {
-            findArray: ['b','c','a']
-        }
-    },
-  computed: {
-    stocks() {
-      return this.$store.getters.stocks;
-    }
-  },
-  components: {
-    appStock: Stock
-  },
-    methods: {
+    export default {
+        name: "Stocks",
+        data() {
+            return {
 
-    },
-};
+            }
+        },
+        components: {
+            appStock: Stock
+        },
+        computed: {
+            stocks() {
+                return this.$store.getters.stocks;
+            }
+        },
+        methods: {},
+    };
 </script>
 
 <style scoped>
